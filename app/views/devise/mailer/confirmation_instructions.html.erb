@@ -1,0 +1,14 @@
+<p>Hello <%= @user.name %>,</p>
+
+
+<br><p>
+Since we have shortlisted your CV, you can complete an online assessment.<br><br>
+
+Please click on link below and login with your mail id and the password sent to you.
+</p><br>
+<p><%= link_to 'Confirm your account', confirmation_url(@resource, confirmation_token: @token) %></p><br>
+<h3>E-Mail ID : <%= @user.email %></h3>
+<h3>Password : <%= @user.shortlist.assessment_code %></h3><br/><br/>
+
+<p>Regards,<br>
+LIBSERV Team

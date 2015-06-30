@@ -1,0 +1,87 @@
+<h5 align = "right"><% if admin_signed_in? %>
+
+Hello, LIBSERV Admin. Not you?
+<% end %> | <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+</h5><hr width="100%" align = "left">
+
+
+<p id="notice"><%= notice %></p>
+<div>
+
+<h4><img src = "/assets/rightarrow1.gif">	
+<%= link_to "New Job Post", :controller => "jobpostings", :action => "new" %> | <%= link_to "View All Job Posts", :controller => "jobpostings", :action => "index" %><hr width="100%" align = "left">
+<img src = "/assets/rightarrow1.gif">
+<%= link_to "New Assessment", :controller => "assessments", :action => "new" %> |
+<%= link_to "View All Assessments", :controller => "assessments", :action => "index" %><hr width="100%" align = "left">
+<img src = "/assets/rightarrow1.gif">
+<%= link_to "Shortlist Candidate", :controller => "shortlists", :action => "new" %></h4></div>
+<hr width="100%" align = "left">
+
+<h3><img src = "/assets/rightarrow1.gif"> Listing Job Applicants</h3>
+
+<table class="table table-hover">
+  
+    <tr>
+      <td align = "center"><h4>Name</h4></td>
+      <td align = "center"><h4>E-Mail ID</h4></td>
+      <td align = "center"><h4>Contact</h4></td>
+      <td align = "center"><h4>Applied For</h4></td>
+      <td align = "center"><h4>CV Attached</h4></td>
+      <td colspan="3" align = "center"><h4>Actions</h4></td></th>
+    </tr>
+  
+
+  
+    <% @job_applicants.each do |job_applicant| %>
+      <tr>
+        <td align = "center"><font color = "#333399"><%= job_applicant.name %></td>
+        <td align = "center"><font color = "#333399"><%= job_applicant.emailid %></td>
+        <td align = "center"><font color = "#333399"><%= job_applicant.contact_no %></td>
+        <td align = "center"><font color = "#333399"><%= job_applicant.applying_for %></td>
+        <td align = "center"><a href =<%= job_applicant.attachment %>>Resume</a></td>
+        <td align = "center"><%= link_to 'Show', job_applicant %></td>
+        <td align = "center"><%= link_to 'Edit', edit_job_applicant_path(job_applicant) %></td>
+        <td align = "center"><%= link_to 'Shortlist', :controller=>"shortlists", :action=>"new" %>
+        <%#= link_to 'Destroy', job_applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr></font>
+    <% end %>
+  
+</table>
+<div>
+<h3><img src = "/assets/rightarrow1.gif"> Listing Candidate's Scores</h3>
+<table class="table table-hover">
+
+					
+					
+						<tr>
+
+							<td align = "center"><h4>Candidate Name&nbsp;</h4></td>
+							<td align = "center"><h4>Assessment Name&nbsp;</h4></td>
+
+							<td align = "center"><h4>Score&nbsp;</h4></td>
+							<td align = "center"><h4>Submitted On</h4></td>
+							<td align = "center"><h4>Action</h4></td>
+							
+						</tr>
+							
+						<% @test_score.each do |ts| %>	
+
+						<tr>
+
+
+						<h5>
+								<td align = "center"><font color = "#333399"><%= ts.user.name %></td>
+								<td align = "center"><font color = "#333399"><%= ts.assessment.name %></td>
+								<td align = "center"><font color = "#333399"><%= ts.score %></td>
+								
+								<td align = "center"><font color = "#333399"><%= ts.created_at.strftime("%d-%m-%Y") %></td>
+								<td align = "center"><%= link_to 'Delete', :controller=>"homepage", :action=>"remove", :id=>ts %></td>
+								
+								
+							</h5>
+						</tr>
+						<% end %>
+					</table>
+</div> 
+
+<h4></h4><br>

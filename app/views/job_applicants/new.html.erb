@@ -1,0 +1,115 @@
+
+
+<style type="text/css">
+  body 
+ <style type="text/css">
+  body 
+  {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+    
+  }
+
+  
+  .nav > li > a{
+    
+    color: #2952CC;
+    text-align: left;
+
+  }
+  
+  
+  .linkbar {
+    display: inline-block;
+    width: 15%;
+    text-align: left;
+
+
+  }
+  
+  .linkbar1 {
+    display: inline-block;
+    width: 83%;
+  }
+  .linkbar2 {
+
+    display: inline-block;
+    width: 25%;
+    
+    
+  }
+
+  
+  .nav {
+    vertical-align: text-top;
+
+  }
+  
+
+
+
+
+  
+
+
+</style><br>
+<div class = "linkbar">
+
+
+
+    
+    
+      <ul class = "nav">
+      
+      <li><a href = <%=homepage_jobpostings_path %>>Job Openings</a></li>
+      
+      </ul></div>
+
+
+    <div class = "linkbar1">
+    <img src = "/assets/jobapply.png" align = "right" height = "200px" width = "200px">
+    
+      <font  color = "#333399" size = "5">Apply For The Job</font><hr width="80%" align = "left">
+<%= form_for @job_applicant, html: { multipart: true } do |f| %>
+  <% if @job_applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_applicant.errors.count, "error") %> prohibited this job_applicant from being saved:</h2>
+
+      <ul>
+      <% @job_applicant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Your Name :" %><br>
+    <%= f.text_field :name, :size=>"50", :maxlength=>"50" , :placeholder => "Enter Full Name"%>
+  </div>
+  <div class="field">
+    <%= f.label :Email_Id, "E-Mail ID :" %><br>
+    <%= f.text_field :emailid, :size=>"50", :maxlength=>"50", :placeholder => "Enter Valid Email ID"%>
+  </div>
+  <div class="field">
+    <%= f.label :Contact_No, "Mobile Number :" %><br>
+    <%= f.text_field :contact_no, :size=>"50", :maxlength=>"10", :placeholder => "10 Digit Mobile Number" %>
+  </div>
+  <div class="field">
+    <%= f.label :applying_for, "Applying For Position :" %><%#= @job.Job_Title %><br>
+    <%= f.text_field :applying_for, :value=>"#{@job.Job_Title}",  :size => "50" %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :attachment, "Attach CV / Resume : (.doc, .docx, .pdf only)" %><br>
+    <%= f.file_field :attachment %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Apply' %>
+  </div>
+<% end %>
+
+</div>
+
+

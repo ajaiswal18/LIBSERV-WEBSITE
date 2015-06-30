@@ -1,0 +1,117 @@
+<style type="text/css">
+	body 
+	{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 	color: black;
+	 	
+	}
+
+	
+	.nav > li > a{
+		
+		color: #2952CC;
+		text-align: left;
+
+	}
+	
+	
+	.linkbar {
+		display: inline-block;
+		width: 15%;
+		text-align: left;
+
+
+	}
+	
+	.linkbar1 {
+		display: inline-block;
+		width: 83%;
+	}
+	.linkbar2 {
+
+		display: inline-block;
+		width: 25%;
+		
+		
+	}
+
+	
+	.nav {
+		vertical-align: text-top;
+
+	}
+	
+
+
+
+
+	
+
+
+</style><br>
+<div class = "linkbar">
+
+
+
+		
+		
+			<ul class = "nav">
+			<li><a href = <%=homepage_careers_path%>>Careers</a></li>
+			<li><a href = <%=homepage_jobpostings_path%>>Job Openings</a></li>
+			
+			</ul></div>
+
+
+		<div class = "linkbar1">
+		
+			<font  color = "#333399" size = "5">Job Openings</font><hr width="80%" align = "left">
+				
+			<%#= form_for :homepages do |f| %>
+	<%= form_for (@application) do |f| %>
+	  <% if @application.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+	      <ul>
+	      <% @application.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+    <div class="field">
+    <%= f.label 'Your_Name' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Email_Id %><br>
+    <%= f.text_field :email_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Contact_No %><br>
+    <%= f.text_field :contact_no %>
+  </div>
+  <div class="field">
+    <%= f.label 'Applying_For_:' %>&nbsp;&nbsp;<%= f.text_field :applying_for, :value=>"#{@job.Job_Title}" %>
+    <!-- <b><font color = "#333399"><%#= @job.Job_Title %></font></b> -->
+    
+  </div>
+  <div class="field">
+    <%= f.label 'Attach_CV :' %><br>
+    <%= f.file_field :attachment %>
+  </div>
+ 
+
+  <div class="actions">
+  	<%= f.submit "Apply" %>
+    <%#= button_tag 'Apply', :type => 'submit', :controller=>"homepage", :action=>"job_apply",  %>&nbsp;<%= button_tag 'Reset', :type => 'reset' %>
+    
+
+    <!--<%#= link_to 'Back', homepage_jobpostings_path %>-->
+  </div>
+<% end %>
+
+				 
+			</font> 
+		

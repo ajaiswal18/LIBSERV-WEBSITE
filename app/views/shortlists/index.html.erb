@@ -1,0 +1,10 @@
+<p>Listing Shortlisted Candidates to whom mails are sent</p>
+<% @shortlists.each do |sh| %><br/>
+	<%= sh.user.name %>
+	<%= sh.assessment.name %>
+	
+
+
+
+<% end %>
+<%= link_to "Logout", destroy_admin_session_path, :method => :delete %>

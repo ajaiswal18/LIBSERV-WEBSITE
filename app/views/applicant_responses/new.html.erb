@@ -1,0 +1,14 @@
+
+
+<br/>
+<% if user_signed_in? %>
+<font size = "6" color = "#333399">Welcome <%= current_user.name %>!</font><br/><br/>
+
+<% end %><br/>
+<p><font size = "3" color="#333399"><u>Note: Each Question carries 1 mark. No negative marks applied.</u></font></p>
+<p><font size = "3" color="#333399"><u>Note: Do not refresh the page otherwise currently filled data will automatically get submitted and you will be logged out.</u></font></p>
+
+<%#= expires_in 2.minutes %>
+
+<%= render 'form' %>
+

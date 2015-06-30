@@ -1,0 +1,17 @@
+<p>Hello,</p>
+
+
+<h4>Candidate Name:</h4><%= @user_name %>
+<h4>Assessment name:</h4><%= @assignment_name %>
+<% @count = @questions.count %>
+<% i=0 %>
+<table>
+	<% while i < @count %>
+		<tr>
+			<td><b><%= (@questions[i].content).html_safe %></b><td></tr>&nbsp;&nbsp;
+			<tr><td>Answer Submitted: <%= @desc_answer[i] %></td>
+			<td>
+		</tr>
+		<% i += 1 %>
+	<% end %>
+</table>

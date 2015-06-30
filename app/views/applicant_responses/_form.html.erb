@@ -1,0 +1,184 @@
+<html>
+<style type="text/css">
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+position: fixed;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+z-index: 9999;
+background: url(/assets/Preloader_21.gif) center no-repeat #fff;
+}
+
+
+
+
+</style>
+<script>
+  
+ 
+//paste this code under head tag or in a seperate js file.
+// Wait for window load
+$(window).load(function() {
+// Animate loader off screen
+$(".se-pre-con").fadeOut("slow");;
+});
+</script>
+<body onload="checkRefresh">
+
+<% time = Assessment.find(current_user.shortlist.assessment_id).test_time %>
+
+<%= hidden_field_tag :timer, "#{time}" if time %>
+
+
+
+<%= form_for(@applicant_response, :html=>{:id=>"myform", :name=>"refreshForm"}, :authenticity_token => true) do |f| %>
+<input type="hidden" name="visited" value="" />
+<%#= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <% if @applicant_response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicant_response.errors.count, "error") %> prohibited this applicant_response from being saved:</h2>
+
+      <ul>
+      <% @applicant_response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+ <p class="bg-primary" id="notice"><%= notice %></p>
+<%= f.hidden_field :user_id, :value=>current_user.id %>
+<%= f.hidden_field :assessment_id, :value=>current_user.shortlist.assessment_id %>
+
+<%# @test.each do |ts| %><br/>
+<h4 align = "left">Test Name: <u><%= @assessment.name %></u> || Time Alloted: <u><%= @assessment.test_time %> minutes.</u></h4> <h4 align = "right">(Time Remaining: <span id="countdown" align = "right"></span>)</h4>
+<%#= ts.test_time %>
+<!-- <span id="countdown1"></span><%#= ts.test_time %> minutes</font> -->
+
+
+<%# end %>
+  <% @questions.each do |q| %><br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <%= f.fields_for :responses do |r| %><br/><hr align = "left">
+      <%= r.hidden_field :user_id, :value=>current_user.id %>
+    
+        <font color = "#333399"><h4><b><%= q.content.html_safe %></b></h4></font>
+
+        <%= r.hidden_field :question_id, :value=>q.id %>
+        &nbsp;Workspace<br><%= r.text_area :desc_answer, :size=>'140', :class=>"form-control"%><br>
+
+        <%#= r.hidden_field :answerbyuser, :value=>q.correct_answer %>
+
+        <%#= r.hidden_field :answer_id, :value=>qq.id %>
+
+        <% q.answers.each do |qq| %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+          <%= r.radio_button :response_text, "#{qq.content}" %> <%= qq.content %><br/>
+
+          <%= r.hidden_field :user_id, :value=>current_user.id %>
+          <%= r.hidden_field :assessment_id, :value=>current_user.shortlist.assessment_id %>
+          <%#= r.hidden_field :answerbyuser, :value=>@question.correct_answer %>
+          <%#= r.hidden_field :score, :value=>@score %>
+          <%#= r.hidden_field :answer_id, :value=>current_user.shortlist.assessment.question.answer_id %>
+        <% end %>
+
+    <% end %>
+    <%#= f.text_area :desc_answer, :size=>'100' %>
+ <% end %></font>
+
+
+    <%# end %>
+  
+    <%#= q.content %>
+  
+<!-- <br /> -->
+  <%# f.hidden_field :question_id, :value=>q.id %>
+  <%# q.answers.each do |a|  %>&nbsp;&nbsp;
+  
+      <%#= f.radio_button :answer_id, a %> <%#= a.content %>
+<br/><br/>
+  <div class="actions">
+    <%= f.submit "Submit", :class=>"btn btn-primary btn-lg active" %>
+    <div class="se-pre-con"></div>
+  </div>
+  
+<% end %>
+
+
+</body>
+</html>
+
+
+<script>
+var val = $("#timer").val();
+$("#countdown1").val(val);
+var seconds = val*60;
+var minutes = Math.floor(seconds / 60);
+
+var updateTimer = function() {
+    timer = localStorage.getItem('timer') || 0;
+    if ( timer == 0 ) {
+      // document.getElementById("myform").submit();
+      
+       // $("#countdown").html("Timer is unset");
+    } else {
+       timer--;
+       if (timer === 0){
+        alert("Time Is Up");
+          $("#myform").submit();
+       }
+       localStorage.setItem('timer', timer);
+      $("#countdown").html(timer);
+    }
+};
+
+$(function() {
+    setInterval(updateTimer, 1000);
+    
+        localStorage.setItem('timer', seconds );
+   
+});
+
+
+
+$(function checkRefresh(){
+
+if( document.refreshForm.visited.value == "" )
+  {
+    // This is a fresh page load
+    document.refreshForm.visited.value = "1";
+    
+
+    // You may want to add code here special for
+    // fresh page loads
+  }
+  else
+  {
+    alert("Sorry! You refreshed the page.");
+    $("#myform").submit();
+  }
+  
+}); 
+
+
+
+
+</script>
+
+
+
+
+<%# end %>
+
+<!-- <input type ="button" id="mybutton" value ="Save"> 
+<script>
+$("#mybutton").click(function() {
+
+            $('#test').click();
+});
+</script> -->

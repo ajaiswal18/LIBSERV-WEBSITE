@@ -1,0 +1,92 @@
+
+
+<p><h3>Shortlist Candidate And Send Mail</h3></p><br>
+<% if @shortlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shortlists.errors.count, "error") %> prohibited this applicant_response from being saved:</h2>
+
+      <ul>
+      <% @shortlist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+ <p id="notice"><%= notice %></p>
+ 
+<%= form_for(@shortlist) do |f| %>
+<div class="field">
+			<%= f.label :assessment_id,"Select Assessment :" %><br>
+			<%= f.collection_select :assessment_id, @assessment, :id, :name, {:prompt => 'Select Assessment'} %>&nbsp;&nbsp;
+		
+			
+			<%#= f.label :assessment_code,"Code :" %>&nbsp;&nbsp;
+			<%= f.hidden_field :assessment_code %>
+		</div><br/><br/>
+	<%= f.fields_for :user do |builder| %>
+	<div class="field">
+			<%= builder.label :name, "Candidate Name" %><br/>
+			<%= builder.text_field :name, :size=>"50" %>
+		</div>
+		<div class="field">
+			<%= builder.label :email, "Candidate Email-ID" %><br/>
+			<%= builder.email_field :email, :size=>"50" %>
+		</div>
+		<div class="field">
+			<%= builder.label :password, "Password" %><br/>
+			<%= builder.password_field :password, :size=>"50", :placeholder => "Select Assessment To Automatically Fill This Password" %>
+		</div>
+		<div class="field">
+			<%= builder.label :password_confirmation, "Confirm Password" %><br/>
+			<%= builder.password_field :password_confirmation, :size=>"50", :placeholder => "Select Assessment To Automatically Fill This Password" %>
+		</div>
+
+	<% end %>
+
+		
+
+		
+
+		<div class="action">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= f.submit "Send Mail Instructions", :class=>"btn btn-primary" %>
+		</div>
+<% end %><br/>
+<%= link_to "Logout", destroy_admin_session_path, :method => :delete %> | <%= link_to "Admin Page", :controller=>"homepage", :action=>"admin_page" %>
+
+
+
+
+<script>
+$("#shortlist_assessment_id").change(function(){
+ass_id = $("#shortlist_assessment_id").val();
+
+$.ajax({
+              type: "GET",
+              url: '/shortlists/new',
+              dataType: "JSON",
+              data: {assess_id: ass_id},
+              success:function(data) {
+              	console.log("**************************");
+                console.log(data);  
+                console.log("**************************");
+
+                $("#shortlist_assessment_code").val(data);
+                $("#shortlist_user_attributes_password").val(data);
+                $("#shortlist_user_attributes_password_confirmation").val(data);
+                // $('#email_to').empty();
+                // $('#email_to').trigger("chosen:updated");
+                // jQuery.each(data.employee_search,function(i, v) {
+                //      $('#email_to').append($('<option value="'+ data.employee_search[i]["id"] +'">'+data.employee_search[i]["email"] +'</option>'));
+                //      // $(".chosen-select").html().chosen().trigger("chosen:updated");
+                //      $('#email_to').trigger("chosen:updated");
+                //    });
+              }
+            });
+
+
+});
+</script>

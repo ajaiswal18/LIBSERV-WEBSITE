@@ -1,0 +1,247 @@
+
+<script type="text/javascript">
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+$('#myModal1').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+$('#myModal2').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+$('#myModal3').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+$('#myModal4').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+</script>
+<style type="text/css">
+	body 
+	{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 	color: black;
+	 	
+	}
+
+	
+	.nav > li > a{
+		
+		color: #2952CC;
+		text-align: left;
+
+	}
+	
+	
+	.linkbar {
+		display: inline-block;
+		width: 15%;
+		text-align: left;
+
+
+	}
+	
+	.linkbar1 {
+		display: inline-block;
+		width: 83%;
+	}
+	.linkbar2 {
+
+		display: inline-block;
+		width: 25%;
+		
+		
+	}
+
+	
+	.nav {
+		vertical-align: text-top;
+
+	}
+	
+
+
+
+
+	
+
+
+</style><br>
+<div class = "linkbar">
+
+
+
+		
+		
+			<ul class = "nav">
+			<li><a href = <%=homepage_about_us_path%>>Company</a></li>
+			<li><a href = <%=homepage_our_team_path%>>Executive Team</a></li>
+			<li><a href = <%=homepage_financial_perf_path%>>Financial Performance</a></li>
+			
+			<li><a href = <%=homepage_contact_us_path%>>Contact Us</a></li>
+			</ul></div>
+
+
+		<div class = "linkbar1">
+		<img src = "/assets/noimage.gif" align = "right" height = "250px" width = "300px">
+		
+			<font  color = "#333399" size = "5">Meet The Team</font><hr width="80%" align = "left"> 
+			
+			<font>
+				Our executive team is a combination of business managers and technology addicts. Their work is supported by a seasoned team of advisors from the HR industry, product technology field and management consulting domain. We work together to develop products and deliver services that will change how businesses do HR. 
+				<br><hr width="68%" align = "left"><font color = "#333399" size = "3">Board Of Advisors</font><hr width="68%" align = "left">
+
+			</font>
+			<table width = "68%">
+				<tr>
+					<td width = "25%" align = "center"><img src = "/assets/Andre-Lobo.jpg" height = "150" width = "145"></td>
+					<td width = "25%" align = "center"><img src = "/assets/mario.jpg" height = "150"></td>
+					<td width = "25%" align = "center"><img src = "/assets/Arun-Shenoy.jpg" height = "150"></td>
+
+				</tr>
+				<tr>
+					<td width = "25%" align = "center"><b>Andre Lobo<br>Chief Executive Officer</b></td>
+					<td width = "25%" align = "center"><b>Mario Lobo<br>Executive Director</b></td>
+					<td width = "25%" align = "center"><b>Arun Shenoy<br>Head Payroll</b></td>
+				</tr>
+				<tr>
+					<td width = "25%" align = "center"><a href = "" data-toggle="modal" data-target="#myModal">Read More</a></td>
+					<td width = "25%" align = "center"><a href = "" data-toggle="modal" data-target="#myModal1">Read More</a></td>
+					<td width = "25%" align = "center"><a href = "" data-toggle="modal" data-target="#myModal2">Read More</a></td>
+				</tr>
+			</table>
+			<hr width="68%" align = "left"><font color = "#333399" size = "3">Technology Team</font><hr width="68%" align = "left">
+
+			</font>
+			<table width = "68%">
+				<tr>
+					<td width = "25%" align = "left"><img src = "/assets/noimage.gif" height = "150" width = "145"></td>
+					<td width = "25%" align = "center"><img src = "/assets/noimage.gif" height = "150"></td>
+					<td width = "25%" align = "right"><img src = "/assets/noimage.gif" height = "150"></td>
+
+				</tr>
+				<tr>
+					<td width = "25%" align = "left"><b>Anurag Jaiswal<br>Product Manager & Developer</b></td>
+					<td width = "25%" align = "center"><b>Prashant Pola | Developer</b></td>
+					<td width = "25%" align = "right"><b>Harshvardhan | Developer</b></td>
+				</tr>
+				<tr>
+					<td width = "25%" align = "left"><a href = "" data-toggle="modal" data-target="#myModal3">Read More</a></td>
+					<td width = "25%" align = "center"><a href = "">Read More</a></td>
+					<td width = "25%" align = "right"><a href = "">Read More</a></td>
+				</tr>
+			</table>
+			<hr width="68%" align = "left"><font color = "#333399" size = "3">Support Team</font><hr width="68%" align = "left">
+
+			</font>
+			<table width = "68%">
+				<tr>
+					<td width = "25%" align = "left"><img src = "/assets/noimage.gif" height = "150" width = "145"></td>
+					<td width = "25%" align = "center"><img src = "/assets/noimage.gif" height = "150"></td>
+					<td width = "25%" align = "right"><img src = "/assets/noimage.gif"height = "150"></td>
+
+				</tr>
+				<tr>
+					<td width = "25%" align = "left"><b>Soujanya Nanthur<br>Process Associate</b></td>
+					<td width = "25%" align = "center"><b>ABC | ABC</b></td>
+					<td width = "25%" align = "right"><b>ABC | ABC</b></td>
+				</tr>
+				<tr>
+					<td width = "25%" align = "left"><a href = "" data-toggle="modal" data-target="#myModal4">Read More</a></td>
+					<td width = "25%" align = "center"><a href = "">Read More</a></td>
+					<td width = "25%" align = "right"><a href = "">Read More</a></td>
+				</tr>
+			</table>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Andre Lobo</h4>
+      </div>
+      <div class="modal-body">
+        Andre Lobo is spearheading the operations of Libserv. He has established the company’s multi-client data processing center and forged strategic partnerships with select vendors to integrate the delivery of HR BPO services for client organizations.<br><br>
+
+Prior to joining Libserv as its CEO, Andre has worked in the financial services industry for reputed multinational organizations like Standard Chartered Bank and the Aditya Birla Group. He completed his MBA from IESE Business School, Barcelona Spain. He is also an alumnus of the University of Michigan, Ann Arbor and London Business School.
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Mario Lobo</h4>
+      </div>
+      <div class="modal-body">
+        Mario is one of the pioneers in Executive Search in India, having spent over 31 years in the industry. With extensive experience in developing and Managing Strategic Relationships, he has helped clients in identifying the roadblocks related to resources and skills and assisted various client organizations with critical strategic inputs during restructuring, salary benchmarking and in different organizational development initiatives. <br><br>
+
+Mario takes a lot of interest in analyzing new organization structures and proposing change management across several industry sectors. His work has been featured in major national publications. He is on the board of a large number of prestigious Management Business Schools in India and is a Speaker at leading academic and business forums. <br><br>
+
+Mario holds a degree in Arts from the University College of Arts in Jaipur and an MBA from the Xavier Labour Relations Institute, Jamshedpur (affiliated with Loyola University, USA).
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Arun Shenoy</h4>
+      </div>
+      <div class="modal-body">
+        Arun joined Lobo Staffing Solutions (LSS) in 2004. Over the years he has held several key positions in LSS including Regional Manager, Head HR , Zonal Head and National Head - BD & CRM . As a member of the core team, he was responsible for converting LSS from a Contract Staffing Company to an national comprehensive HR Solutions Company. <br><br>
+
+He has over 28 years experience in HR, operations, client relations, business development and compliances. Prior to joining LSS, he worked with Unit Trust of India. Arun holds a Bachelor’s degree in Science, with a Post Graduate Diploma in Management Studies and MBA in HR. He is a Certified Associate of Indian Institute of Bankers (UTI).
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Anurag Jaiswal</h4>
+      </div>
+      <div class="modal-body">
+        Brings 3 years of experience to LIBSERV in design, technical implementation and technical support for HRMS products for SME and enterprise companies. He has a Bachelor and Master degree in Computer Applications. 
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Soujanya Nanthur</h4>
+      </div>
+      <div class="modal-body">
+        Has over 6 years of experience in HR administration and support for TSR Darashaw. Soujanya oversees all support related issues for LIBERV’s clients and is involved in all first time implementations and delivery of ongoing customer support. She is a B.Com and M.Com from Mumbai University. 
+      </div>
+      
+    </div>
+  </div>
+</div>
+			</div>
+			
+			
+	
+	
+
+
+
+
+
+

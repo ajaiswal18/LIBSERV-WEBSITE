@@ -1,0 +1,17 @@
+
+
+
+<div class "nav nav-right">
+
+  <%= f.fields_for :answers do |task_form| %>
+  <%= f.label :content, "Answer" %>
+  <%= task_form.text_field :content %>
+  <%= task_form.link_to_remove "Remove" %>
+
+  <% end %>
+  <%= f.link_to_add "Add Answer", :answers %>
+  <%#= f.check_box :_destroy %>
+  <%#= f.label :_destroy, "Remove" %>
+</div>
+
+

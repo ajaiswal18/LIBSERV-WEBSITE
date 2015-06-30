@@ -1,0 +1,22 @@
+<p>Hello,</p>
+
+
+<h4>Candidate Name:</h4><%= @user_name %>
+<h4>Assessment name:</h4><%= @assignment_name %>
+<%# @response_questions_content.each do |rsq| %>
+<%#= @response_questions_content.content %>
+<% @count = @questions.count %>
+<% i=0 %>
+<table>
+	<% while i < @count %>
+		<tr>
+			<td><b><%= (@questions[i].content).html_safe %></b><td></tr>&nbsp;&nbsp;
+			<tr><td>Answer Submitted: <%= @response_texts[i] %></td>
+			<td>
+		</tr>
+		<% i += 1 %>
+	<% end %>
+</table>
+
+<h5>Score is:<%= @score %></h5>
+

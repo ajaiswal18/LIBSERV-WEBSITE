@@ -1,0 +1,17 @@
+
+
+<div class= "nav">
+<%= f.fields_for :answers do |task_form| %>
+
+  <%= f.label :content, "Answer" %><br />
+  <%= task_form.text_field :content %><br />
+  <% end %>
+  <%#= f.check_box :_destroy %>
+  <%#= f.label :_destroy, "Remove Question" %>
+<%= f.link_to_add "Add Answer", :answers %>
+  <%= render 'answer_fields', :f => task_form %>
+
+</div>
+
+
+

@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title></title>
+<script type="text/javascript">
+function CloseWindow() {
+        ww = window.open(window.location, "_self");
+        ww.close();
+    } 
+</script>
+<style type="text/css">
+.details {
+  {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+    font-size: 30pt;
+}
+table > tr >td {
+  text-align: center;
+
+}
+
+</style>
+</head>
+<body>
+  <div></div>
+  <div class = "details">Details Of The Job :</div>
+
+  <br><br>
+<p id="notice"><%= notice %></p>
+<table width = "100%">
+  <tr>
+    <td>Job ID</td>
+    <td><%= @jobposting.S_No %></td>
+  </tr>
+    <td>Posted On</td>
+    <td><%= @jobposting.Posted_On %></td>
+  </tr>
+    <td>Job Title</td>
+    <td><%= @jobposting.Job_Title %></td>
+  </tr>
+    <td>Annual CTC</td>
+    <td><%= @jobposting.CTC %></td>
+  </tr>
+    <td>Job Description</td>
+    <td><%= @jobposting.Job_Description %></td>
+  </tr>
+    <td>Required Experience</td>
+    <td><%= @jobposting.Experience_Req %></td>
+  </tr>
+</table><br><br>
+  <button type="button" onclick="CloseWindow();">Close</button>
+
+<%# link_to 'Edit', edit_jobposting_path(@jobposting) %>
+<%# link_to 'Back', jobpostings_path %>
+</body>
+</html>

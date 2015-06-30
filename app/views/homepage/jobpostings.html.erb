@@ -1,0 +1,105 @@
+<style type="text/css">
+	body 
+	{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 	color: black;
+	 	
+	}
+
+	
+	.nav > li > a{
+		
+		color: #2952CC;
+		text-align: left;
+
+	}
+	
+	
+	.linkbar {
+		display: inline-block;
+		width: 15%;
+		text-align: left;
+
+
+	}
+	
+	.linkbar1 {
+		display: inline-block;
+		width: 83%;
+	}
+	.linkbar2 {
+
+		display: inline-block;
+		width: 25%;
+		
+		
+	}
+
+	
+	.nav {
+		vertical-align: text-top;
+
+	}
+	
+
+
+
+
+	
+
+
+</style><br>
+<div class = "linkbar">
+
+
+
+		
+		
+			<ul class = "nav">
+			<li><a href = <%=homepage_careers_path%>>Careers</a></li>
+			<li><a href = <%=homepage_jobpostings_path%>>Job Openings</a></li>
+			
+			</ul></div>
+
+
+		<div class = "linkbar1">
+		<img src = "/assets/job_openings.jpg" align = "right" height = "250px" width = "300px">
+		
+			<font  color = "#333399" size = "5">Job Openings</font><hr width="80%" align = "left">
+			<font>Listing below the current job openings in our organization.</font><hr opacity = "0.3" width = "100%">
+				
+				<%= notice %>
+					<table>
+
+					
+					
+						<tr>
+
+							<td align = "center"><b><h4>S.No&nbsp;</b></h4></td>
+							<td align = "center"><b><h4>Job Title&nbsp;</b></h4></td>
+							<td align = "center"><b><h4>Posted On&nbsp;</b></h4></td>
+							<td align = "center"><b><h4>Salary</b></h4></td>
+							
+						</tr>
+							
+						<% @jobpostings.each do |jobposting| %>	
+
+						<tr>
+
+
+						<h5>
+								<td align = "center"><%= jobposting.S_No %></td>
+								<td align = "center"><%= jobposting.Job_Title %></td>
+								<td align = "center"><%= jobposting.Posted_On %></td>
+								<td align = "center"><%= jobposting.CTC %>&nbsp;</td>
+								<td>&nbsp;&nbsp;</td>
+								<div class = "applylink"><td align = "center"><%= link_to 'View Details',  jobposting, :target => "_blank" %>&nbsp;</td>
+								<td align = "center"><%= link_to 'Apply', :controller=>"job_applicants", :action=>"new", :title=> jobposting.Job_Title %></td></div>
+							</h5>
+						</tr>
+						<% end %>
+					</table></div>
+
+					
+				
+			

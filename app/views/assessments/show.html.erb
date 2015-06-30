@@ -1,0 +1,42 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @assessment.name %>
+</p>
+<ol>
+<% for question in @assessment.questions %>
+	<li><%= question.content.html_safe %>
+		<ul>
+			<% for answer in question.answers %>
+				<li>
+				<%=h answer.content %></li>
+				<% end %>
+
+		</ul>
+
+
+	</li>
+
+	<% end %>
+	
+
+</ol>
+<p>
+  <strong>Test code:</strong>
+  <%= @assessment.test_code %>
+</p>
+
+
+
+
+
+<%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+<%#= link_to "Assign", new_user_registration_path %>
+
+<%= link_to 'Assign', :controller=>"shortlists", :action=>"new" %>|
+
+<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<%= link_to 'Back', assessments_path %>
