@@ -60,7 +60,7 @@
 
 
 
-<script>
+<script type="text/javascript">
 $("#shortlist_assessment_id").change(function(){
 ass_id = $("#shortlist_assessment_id").val();
 
@@ -69,7 +69,8 @@ $.ajax({
               url: '/shortlists/new',
               dataType: "JSON",
               data: {assess_id: ass_id},
-              success:function(data) {
+              success:function(data) 
+              {
               	console.log("**************************");
                 console.log(data);  
                 console.log("**************************");
@@ -77,13 +78,7 @@ $.ajax({
                 $("#shortlist_assessment_code").val(data);
                 $("#shortlist_user_attributes_password").val(data);
                 $("#shortlist_user_attributes_password_confirmation").val(data);
-                // $('#email_to').empty();
-                // $('#email_to').trigger("chosen:updated");
-                // jQuery.each(data.employee_search,function(i, v) {
-                //      $('#email_to').append($('<option value="'+ data.employee_search[i]["id"] +'">'+data.employee_search[i]["email"] +'</option>'));
-                //      // $(".chosen-select").html().chosen().trigger("chosen:updated");
-                //      $('#email_to').trigger("chosen:updated");
-                //    });
+                
               }
             });
 
