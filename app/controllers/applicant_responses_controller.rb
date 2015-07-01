@@ -10,7 +10,7 @@ class ApplicantResponsesController < ApplicationController
 
   def index
   	#@applicant_responses = ApplicantResponse.all
-
+# hello
 
 
   end
