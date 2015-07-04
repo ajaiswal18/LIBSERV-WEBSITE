@@ -15,7 +15,7 @@ default from: "libserv.helpdesk@gmail.com"
   def job_application(job_applicant)
   	@job_applicant = job_applicant
   	attachments["#{@job_applicant.attachment}"] = File.read("#{Rails.root}/public/#{@job_applicant.attachment}") 
-  	mail(to: "anurag.jaiswal@libserv.co", subject: 'Job Application Notification')
+  	mail(to: "support@libserv.co", subject: 'Job Application Notification')
 
   end
    def send_responses_mail(assignment_name, user_name, response, score)
@@ -37,7 +37,7 @@ default from: "libserv.helpdesk@gmail.com"
     # @response_text1 = response_text1
     # @user_name = @response_user_name.name
     #@test_score = test_score
-    mail(to: "anurag.jaiswal@libserv.co", subject: "Assessment Response : #{@user_name}")
+    mail(to: "support@libserv.co", subject: "Assessment Response : #{@user_name}")
   end
   def applicant_response_mail(assignment_name, user_name, response)
     @assignment_name = assignment_name
@@ -62,7 +62,7 @@ default from: "libserv.helpdesk@gmail.com"
     # @response_text1 = response_text1
     # @user_name = @response_user_name.name
     #@test_score = test_score
-    mail(to: "anurag.jaiswal@libserv.co", subject: "Assessment Response : #{@user_name}")
+    mail(to: "supprt@libserv.co", subject: "Assessment Response : #{@user_name}")
   end
  
   
