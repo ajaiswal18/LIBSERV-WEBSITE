@@ -42,10 +42,10 @@ table > tr >td {
     <td><%= @jobposting.CTC %></td>
   </tr>
     <td>Job Description</td>
-    <td><%= @jobposting.Job_Description %></td>
+    <td><%= @jobposting.Job_Description.html_safe %></td>
   </tr>
     <td>Required Experience</td>
-    <td><%= @jobposting.Experience_Req %></td>
+    <td><%= @jobposting.Experience_Req.html_safe %></td>
   </tr>
 </table><br><br>
   <button type="button" onclick="CloseWindow();">Close</button>
