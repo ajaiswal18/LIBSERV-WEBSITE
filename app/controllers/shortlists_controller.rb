@@ -31,13 +31,15 @@ class ShortlistsController < ApplicationController
     
   
   end
-  
+  def show
+    
+  end
 
   def create
   	@shortlist = Shortlist.new(shortlist_params)
   	respond_to do |format|
   		if @shortlist.save
-  			format.html {redirect_to :back, notice: 'Mail Sent'}
+  			format.html {redirect_to @shortlist }
   		else
   			render 'new'
   		end
