@@ -3,7 +3,7 @@
   <head>
   
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="shortcut icon" href="/assets/icon.png">
@@ -44,7 +44,8 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <style>
+
+  <style type = "text/css">
     .navbar-inner
       {
         min-height: 0px;
@@ -61,10 +62,10 @@
       }
      .panel, .panel-default
       {
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 25px;
+        margin-right: 25px;
       }
-    .nav, .nav-pills
+    .nav-pills
       {
         margin-left: 20px;
 
@@ -72,8 +73,8 @@
     
     .nav, .nav-pills > li > a {
       color: #2952CC;
-      font-size: 11pt;
-      margin-left: 20px;
+      font-size: 12pt;
+      margin-left: 15px;
     }
     .footerdiv > a {
       color: black;
@@ -139,29 +140,19 @@
       <ul class="nav nav-pills navbar-nav">
         
         <li><a href = <%= homepage_hr_products_path %>>Products</a>
-          <!--<ul>
-            <li><a href = "homepage/workstaff">Workstaff</a></li>
-            <li><a href = "homepage/performance">Performance</a></li>   
-            <li><a href = "homepage/payroll_expenses">Payroll & Expenses</a></li>
-          </ul>-->
+         
         </li>
         <li><a href = <%=homepage_services_path%>>Services</a>
-          <!--<ul>
-            <li><a href = "homepage/outsourcing">HR Outsourcing</a></li>
-          </ul>-->
+          
         </li>
         <li><a href = <%=homepage_about_us_path%>>About Us</a>
-          <!--<ul>
-            <li><a href = "homepage/about_us">Company</a></li>
-            <li><a href = "homepage/our_team">Executive Team & Advisors</a></li>
-            <li><a href = "homepage/financial_preformance">Financial Performance</a></li>
-            <li><a href = "jobpostings">Careers</a></li>
-            <li><a href = "homepage/contact_us">Contact Us</a></li>
-          </ul>-->
+          
         </li>
         <li><a href = <%=homepage_careers_path%>>Careers</a></li>
       </ul>
+
     </div>
+
     <!---<div class="col-md-10 content">-->
     </br>
             <div class="panel panel-default">
