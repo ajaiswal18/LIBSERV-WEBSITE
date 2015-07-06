@@ -53,3 +53,4 @@ production:
   database: website_production
   username: website
   password: <%= ENV['WEBSITE_DATABASE_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
