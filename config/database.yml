@@ -48,11 +48,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-
-  # database: website_production
-  # username: website
-  # password: <%= ENV['WEBSITE_DATABASE_PASSWORD'] %>
   adapter: mysql2
   encoding: utf8
   database: <%= ENV['RDS_DB_NAME'] %>
@@ -60,3 +55,9 @@ production:
   password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>
+  # <<: *default
+
+  # database: website_production
+  # username: website
+  # password: <%= ENV['WEBSITE_DATABASE_PASSWORD'] %>
+
