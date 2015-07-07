@@ -51,7 +51,11 @@ production:
 
   <<: *default
   adapter: mysql2
+  encoding: utf8
+  reconnect: false
   database: ebdb
+  pool: 5
   username: root
-  password: "libserv1234"
-  url: "aa1vympk59x7sjr.ctjxwww0qz5u.ap-southeast-1.rds.amazonaws.com"
+  password: libserv1234
+  host: aa1vympk59x7sjr.ctjxwww0qz5u.ap-southeast-1.rds.amazonaws.com 
+
