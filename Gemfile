@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #file upload
 gem 'carrierwave'
 gem "figaro"
+gem "puma"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
